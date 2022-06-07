@@ -8,7 +8,7 @@ export interface IEmployee {
   salary: string;
 }
 
-export interface IEmployeeModel extends IEmployee, Document {}
+export interface IEmployee extends Document {}
 
 const EmployeeSchema: Schema = new Schema({
   name: {
@@ -19,7 +19,7 @@ const EmployeeSchema: Schema = new Schema({
     type: String,
     required: true,
   },
-  phone_number: {
+  phoneNumber: {
     type: String,
     required: true,
   },
@@ -33,4 +33,4 @@ const EmployeeSchema: Schema = new Schema({
   },
 });
 
-export default mongoose.model<IEmployeeModel>("Employee", EmployeeSchema);
+export default mongoose.model<IEmployee>("Employee", EmployeeSchema);
