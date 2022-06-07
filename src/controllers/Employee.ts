@@ -3,7 +3,7 @@ import Employee from "../models/Employee";
 import { Request, Response, NextFunction } from "express";
 
 // CREATE EMPLOYEE
-const createEmployee = (req: Request, res: Response, next: NextFunction) => {
+export const createEmployee = (req: Request, res: Response, next: NextFunction) => {
   
   const { name, email, phoneNumber, department, salary } = req.body
 
@@ -23,7 +23,7 @@ const createEmployee = (req: Request, res: Response, next: NextFunction) => {
 };
 
 // UPDATE EMPLOYEE
-const updateEmployee = (req: Request, res: Response, next: NextFunction) => {
+export const updateEmployee = (req: Request, res: Response, next: NextFunction) => {
   const employeeId = req.params.employeeId;
 
   return Employee.findById(employeeId)
@@ -43,7 +43,7 @@ const updateEmployee = (req: Request, res: Response, next: NextFunction) => {
 };
 
 // DELETE EMPLOYEE
-const deleteEmployee = (req: Request, res: Response, next: NextFunction) => {
+export const deleteEmployee = (req: Request, res: Response, next: NextFunction) => {
   const employeeId = req.params.employeeId;
 
   return Employee.findByIdAndUpdate(employeeId)
@@ -56,7 +56,7 @@ const deleteEmployee = (req: Request, res: Response, next: NextFunction) => {
 };
 
 // READ EMPLOYEE
-const readEmployee = (req: Request, res: Response, next: NextFunction) => {
+export const readEmployee = (req: Request, res: Response, next: NextFunction) => {
   const employeeId = req.params.employeeId;
 
   return Employee.findById(employeeId)
@@ -69,16 +69,8 @@ const readEmployee = (req: Request, res: Response, next: NextFunction) => {
 };
 
 // READ ALL EMPLOYEES
-const readAllEmployee = (req: Request, res: Response, next: NextFunction) => {
+export const readAllEmployee = (req: Request, res: Response, next: NextFunction) => {
   return Employee.find()
     .then((employees) => res.status(200).json({ employees }))
     .catch((error) => res.status(500).json({ error }));
-};
-
-export default {
-  createEmployee,
-  updateEmployee,
-  deleteEmployee,
-  readEmployee,
-  readAllEmployee,
 };
