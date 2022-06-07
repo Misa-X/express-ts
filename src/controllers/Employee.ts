@@ -4,17 +4,14 @@ import { Request, Response, NextFunction } from "express";
 
 // CREATE EMPLOYEE
 const createEmployee = (req: Request, res: Response, next: NextFunction) => {
-  const { name } = req.body;
-  const { email } = req.body;
-  const { phone_number } = req.body;
-  const { department } = req.body;
-  const { salary } = req.body;
+  
+  const { name, email, phoneNumber, department, salary } = req.body
 
   const employee = new Employee({
     _id: new mongoose.Types.ObjectId(),
     name,
     email,
-    phone_number,
+    phoneNumber,
     department,
     salary,
   });
