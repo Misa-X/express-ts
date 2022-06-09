@@ -1,8 +1,8 @@
 import { config } from "./config/config";
 import express, { Application, Request, Response } from "express";
-import http from "http";
 import mongoose from "mongoose";
 import employeeRoutes from "./routes/Employee";
+import departmentRoutes from "./routes/Department";
 
 const app: Application = express();
 const port: number = 3000;
@@ -27,3 +27,4 @@ app.listen(port, () => {
 
 // ROUTES
 app.use("/employees", employeeRoutes);
+app.use("/departments", departmentRoutes);

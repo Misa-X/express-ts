@@ -3,7 +3,7 @@ import mongoose, { Document, Schema } from "mongoose";
 export interface IEmployee {
   name: string;
   email: string;
-  phone_number: string;
+  phoneNumber: string;
   department: string;
   salary: string;
 }
@@ -24,8 +24,8 @@ const EmployeeSchema: Schema = new Schema({
     required: true,
   },
   department: {
-    type: String,
-    required: true,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Department",
   },
   salary: {
     type: String,
