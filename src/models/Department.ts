@@ -1,11 +1,9 @@
 import mongoose, { Document, Schema } from "mongoose";
 
-export interface IDepartment {
+export interface IDepartment extends Document {
   name: string;
   location: string;
 }
-
-export interface IDepartment extends Document {}
 
 const DepartmentSchema: Schema = new Schema(
   {

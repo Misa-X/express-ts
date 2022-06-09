@@ -12,7 +12,7 @@ const router = express.Router();
 router.post("/department", createDepartment);
 router.get("/get/:departmentId", readDepartment);
 router.get("/getAll", readAllDepartment);
-router.patch("/update/:departmentId", updateDepartment);
-router.delete("/delete/:departmentId", deleteDepartment);
+router.patch("/department/:departmentId", updateDepartment);
+router.delete("/delDepartment/:departmentId", deleteDepartment);
 
-export = router;
+export default router;

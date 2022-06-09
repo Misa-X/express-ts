@@ -1,14 +1,12 @@
 import mongoose, { Document, Schema } from "mongoose";
 
-export interface IEmployee {
+export interface IEmployee extends Document {
   name: string;
   email: string;
   phoneNumber: string;
   department: string;
   salary: string;
 }
-
-export interface IEmployee extends Document {}
 
 const EmployeeSchema: Schema = new Schema({
   name: {
