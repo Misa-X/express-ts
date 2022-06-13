@@ -13,6 +13,6 @@ router.post("/employee", createEmployee);
 router.get("/get/:employeeId", readEmployee);
 router.get("/getAll", readAllEmployee);
 router.patch("/employee/:employeeId", updateEmployee);
-router.delete("/delEmployee/:employeeId", deleteEmployee);
+router.delete("/employee/:employeeId", deleteEmployee);
 
 export default router;

@@ -13,6 +13,6 @@ router.post("/department", createDepartment);
 router.get("/get/:departmentId", readDepartment);
 router.get("/getAll", readAllDepartment);
 router.patch("/department/:departmentId", updateDepartment);
-router.delete("/delDepartment/:departmentId", deleteDepartment);
+router.delete("/department/:departmentId", deleteDepartment);
 
 export default router;
