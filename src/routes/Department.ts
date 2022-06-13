@@ -5,7 +5,7 @@ import {
   readDepartment,
   updateDepartment,
   deleteDepartment,
-} from "../controllers/Department";
+} from "controllers/Department";
 
 const router = express.Router();
 

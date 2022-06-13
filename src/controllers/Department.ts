@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import Department from "../models/Department";
+import Department from "models/Department";
 import { Request, Response, NextFunction } from "express";
 
 // CREATE DEPARTMENT
@@ -11,7 +11,6 @@ export const createDepartment = (
   const { name, location } = req.body;
 
   const department = new Department({
-    _id: new mongoose.Types.ObjectId(),
     name,
     location,
   });

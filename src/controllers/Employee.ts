@@ -1,14 +1,16 @@
 import mongoose from "mongoose";
-import Employee from "../models/Employee";
+import Employee from "models/Employee";
 import { Request, Response, NextFunction } from "express";
 
 // CREATE EMPLOYEE
-export const createEmployee = (req: Request, res: Response, next: NextFunction) => {
-  
-  const { name, email, phoneNumber, department, salary } = req.body
+export const createEmployee = (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const { name, email, phoneNumber, department, salary } = req.body;
 
   const employee = new Employee({
-    _id: new mongoose.Types.ObjectId(),
     name,
     email,
     phoneNumber,
@@ -23,7 +25,11 @@ export const createEmployee = (req: Request, res: Response, next: NextFunction) 
 };
 
 // UPDATE EMPLOYEE
-export const updateEmployee = (req: Request, res: Response, next: NextFunction) => {
+export const updateEmployee = (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   const employeeId = req.params.employeeId;
 
   return Employee.findById(employeeId)
@@ -43,7 +49,11 @@ export const updateEmployee = (req: Request, res: Response, next: NextFunction) 
 };
 
 // DELETE EMPLOYEE
-export const deleteEmployee = (req: Request, res: Response, next: NextFunction) => {
+export const deleteEmployee = (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   const employeeId = req.params.employeeId;
 
   return Employee.findByIdAndUpdate(employeeId)
@@ -56,7 +66,11 @@ export const deleteEmployee = (req: Request, res: Response, next: NextFunction) 
 };
 
 // READ EMPLOYEE
-export const readEmployee = (req: Request, res: Response, next: NextFunction) => {
+export const readEmployee = (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   const employeeId = req.params.employeeId;
 
   return Employee.findById(employeeId)
@@ -69,7 +83,11 @@ export const readEmployee = (req: Request, res: Response, next: NextFunction) =>
 };
 
 // READ ALL EMPLOYEES
-export const readAllEmployee = (req: Request, res: Response, next: NextFunction) => {
+export const readAllEmployee = (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   return Employee.find()
     .then((employees) => res.status(200).json({ employees }))
     .catch((error) => res.status(500).json({ error }));
